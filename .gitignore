@@ -1,5 +1,4 @@
 .env
-*.sql
 *.bak
 local_files/
 postgres_data/
