@@ -1,18 +1,16 @@
 services:
+  
+
   postgres:
     image: postgres:17
+    restart: always
     environment:
-      POSTGRES_USER: n8n
-      POSTGRES_PASSWORD: strong_password_here
-      POSTGRES_DB: n8n
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U n8n"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+
   n8n:
     image: docker.n8n.io/n8nio/n8n
     restart: always
@@ -28,7 +26,7 @@ services:
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - NODE_ENV=production
-      - WEBHOOK_URL=https://${N8N_SUBDOMAIN}.${DOMAIN_NAME}/
+      - WEBHOOK_URL=https://{N8N_SUBDOMAIN}.${DOMAIN_NAME}/
       - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
       - N8N_PERSONALIZATION_ENABLED=false
       - N8N_DIAGNOSTICS_ENABLED=false
@@ -36,7 +34,7 @@ services:
       - N8N_LICENSE_ACTIVATION_KEY=${N8N_LICENSE_ACTIVATION_KEY}
       - N8N_RUNNERS_ENABLED=true
       - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
-      - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
+      - 
 
     volumes:
       - n8n_data:/home/node/.n8n
@@ -55,15 +53,10 @@ services:
     expose:
       - "8080"
 
-  adminer:
-    image: adminer
-    restart: always
-    depends_on: [postgres, n8n, nocodb]
-    expose:
-      - "8080"
   caddy:
     image: caddy:latest
     restart: unless-stopped
+    depends_on: [n8n, nocodb, postgres]
     ports:
       - "80:80"
       - "443:443"
@@ -71,6 +64,13 @@ services:
       - caddy_data:/data
       - ${DEPLOY_PATH}/caddy_config:/config
       - ${DEPLOY_PATH}/caddy_config/Caddyfile:/etc/caddy/Caddyfile
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on: [postgres]
+    expose:
+      - "8080"
 
 volumes:
   caddy_data:
