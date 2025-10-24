@@ -76,6 +76,11 @@ services:
         condition: service_healthy
     expose:
       - "8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
 
   caddy:
     image: caddy:latest
