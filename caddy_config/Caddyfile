@@ -1,16 +1,16 @@
-n8n-stack.duckdns.org:5678 {
+n8n.nryzhikh.dev {
     reverse_proxy n8n:5678 {
       flush_interval -1
     }
 }
 
-n8n-stack.duckdns.org:8080 {
+nocodb.nryzhikh.dev {
     reverse_proxy nocodb:8080 {
       flush_interval -1
     }
 }
 
-n8n-stack.duckdns.org:9443  {
+adminer.nryzhikh.dev {
     basicauth * {
         admin JDJhJDE0JHdZbzVaNUpOV0phMXo0V2tOcnkwNHpMdnhQb2J1cHkzVDhIM25YQmZob1ZPQmFFdUxndDNq
     }
