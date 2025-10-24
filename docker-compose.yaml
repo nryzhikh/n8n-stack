@@ -1,0 +1,72 @@
+version: "3.8"
+
+services:
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - ${DEPLOY_PATH}/caddy_config:/config
+      - ${DEPLOY_PATH}/caddy_config/Caddyfile:/etc/caddy/Caddyfile
+
+  postgres:
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    depends_on: [postgres]
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgres
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=n8n
+      - DB_POSTGRESDB_USER=${POSTGRES_USER}
+      - DB_POSTGRESDB_PASSWORD=${POSTGRES_PASSWORD}
+      - N8N_HOST={N8N_SUBDOMAIN}.${DOMAIN_NAME}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://{N8N_SUBDOMAIN}.${DOMAIN_NAME}/
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ${DEPLOY_PATH}/local_files:/files
+    expose:
+      - "5678"
+
+  nocodb:
+    image: nocodb/nocodb:latest
+    restart: always
+    depends_on: [postgres]
+    environment:
+      NC_DB: "pg://postgres:5432?u=${POSTGRES_USER}&p=${POSTGRES_PASSWORD}&d=nocodb"
+    volumes:
+      - nocodb_data:/usr/app/data
+    expose:
+      - "8080"
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on: [postgres]
+    expose:
+      - "8080"
+
+volumes:
+  caddy_data:
+    external: true
+  postgres_data:
+    external: true
+  n8n_data:
+    external: true

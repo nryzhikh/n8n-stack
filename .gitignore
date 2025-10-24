@@ -1,0 +1,9 @@
+.env
+*.sql
+*.bak
+local_files/
+postgres_data/
+n8n_data/
+nocodb_data/
+caddy_data/
+.ssh/

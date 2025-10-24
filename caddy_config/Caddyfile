@@ -1,0 +1,14 @@
+n8n-617771511937.duckdns.org {
+    reverse_proxy n8n:5678
+}
+
+nocodb-617771511937.duckdns.org {
+    reverse_proxy nocodb:8080
+}
+
+adminer.example.duckdns.org {
+    basicauth * {
+        admin JDJhJDE0JHdZbzVaNUpOV0phMXo0V2tOcnkwNHpMdnhQb2J1cHkzVDhIM25YQmZob1ZPQmFFdUxndDNq
+    }
+    reverse_proxy adminer:8080
+}
