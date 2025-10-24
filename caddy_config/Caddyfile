@@ -1,16 +1,16 @@
-n8n-617771511937.duckdns.org {
+n8n-stack.duckdns.org:5678 {
     reverse_proxy n8n:5678 {
       flush_interval -1
     }
 }
 
-nocodb-617771511937.duckdns.org {
+n8n-stack.duckdns.org:8080 {
     reverse_proxy nocodb:8080 {
       flush_interval -1
     }
 }
 
-adminer-617771511937.duckdns.org {
+n8n-stack.duckdns.org:9443  {
     basicauth * {
         admin JDJhJDE0JHdZbzVaNUpOV0phMXo0V2tOcnkwNHpMdnhQb2J1cHkzVDhIM25YQmZob1ZPQmFFdUxndDNq
     }
