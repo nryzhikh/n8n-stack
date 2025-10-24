@@ -62,3 +62,6 @@ DNS: https://www.duckdns.org/
 
 
 docker logs --tail 50 n8n-stack-n8n-1
+
+
+scp .env deploy@162.232.125.58:/home/deploy/n8n-stack

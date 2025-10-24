@@ -71,7 +71,3 @@ volumes:
   postgres_data:
   n8n_data:
   nocodb_data:
-
-networks:
-  default:
-    name: n8n_stack_net
