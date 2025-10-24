@@ -11,9 +11,6 @@ nocodb.nryzhikh.dev {
 }
 
 adminer.nryzhikh.dev {
-    basicauth * {
-        admin JDJhJDE0JHdZbzVaNUpOV0phMXo0V2tOcnkwNHpMdnhQb2J1cHkzVDhIM25YQmZob1ZPQmFFdUxndDNq
-    }
     reverse_proxy adminer:8080 {
       flush_interval -1
     }
