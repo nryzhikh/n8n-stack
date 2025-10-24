@@ -1,5 +1,14 @@
 services:
-  
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - ${DEPLOY_PATH}/caddy_config:/config
+      - ${DEPLOY_PATH}/caddy_config/Caddyfile:/etc/caddy/Caddyfile
 
   postgres:
     image: postgres:17
@@ -52,18 +61,6 @@ services:
       - nocodb_data:/usr/app/data
     expose:
       - "8080"
-
-  caddy:
-    image: caddy:latest
-    restart: unless-stopped
-    depends_on: [n8n, nocodb, postgres]
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - caddy_data:/data
-      - ${DEPLOY_PATH}/caddy_config:/config
-      - ${DEPLOY_PATH}/caddy_config/Caddyfile:/etc/caddy/Caddyfile
 
   adminer:
     image: adminer
