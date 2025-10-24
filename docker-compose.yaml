@@ -66,10 +66,6 @@ services:
 
 volumes:
   caddy_data:
-    external: true
   postgres_data:
-    external: true
   n8n_data:
-    external: true
   nocodb_data:
-    external: true
