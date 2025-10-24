@@ -1,15 +1,4 @@
 services:
-  caddy:
-    image: caddy:latest
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - caddy_data:/data
-      - ${DEPLOY_PATH}/caddy_config:/config
-      - ${DEPLOY_PATH}/caddy_config/Caddyfile:/etc/caddy/Caddyfile
-
   postgres:
     image: postgres:17
     environment:
@@ -69,9 +58,19 @@ services:
   adminer:
     image: adminer
     restart: always
-    depends_on: [postgres]
+    depends_on: [postgres, n8n, nocodb]
     expose:
       - "8080"
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - ${DEPLOY_PATH}/caddy_config:/config
+      - ${DEPLOY_PATH}/caddy_config/Caddyfile:/etc/caddy/Caddyfile
 
 volumes:
   caddy_data:
