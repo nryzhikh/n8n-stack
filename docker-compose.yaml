@@ -35,7 +35,7 @@ services:
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - NODE_ENV=production
-      - WEBHOOK_URL=https://{N8N_SUBDOMAIN}.${DOMAIN_NAME}/
+      - WEBHOOK_URL=https://${N8N_SUBDOMAIN}.${DOMAIN_NAME}/
       - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
       - N8N_PERSONALIZATION_ENABLED=false
       - N8N_DIAGNOSTICS_ENABLED=false
