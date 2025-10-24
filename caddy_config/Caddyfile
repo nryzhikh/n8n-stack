@@ -6,7 +6,7 @@ nocodb-617771511937.duckdns.org {
     reverse_proxy nocodb:8080
 }
 
-adminer.example.duckdns.org {
+adminer-617771511937.duckdns.org {
     basicauth * {
         admin JDJhJDE0JHdZbzVaNUpOV0phMXo0V2tOcnkwNHpMdnhQb2J1cHkzVDhIM25YQmZob1ZPQmFFdUxndDNq
     }

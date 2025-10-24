@@ -73,3 +73,5 @@ volumes:
     external: true
   n8n_data:
     external: true
+  nocodb_data:
+    external: true
