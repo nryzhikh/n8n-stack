@@ -67,3 +67,11 @@ docker logs --tail 50 n8n-stack-n8n-1
 scp .env deploy@162.232.125.58:/home/deploy/n8n-stack
 
 sudo chown -R deploy:deploy /home/deploy/n8n-stack
+
+
+# Swapfile
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
