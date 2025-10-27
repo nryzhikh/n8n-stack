@@ -69,6 +69,18 @@ services:
     volumes:
       - redis_data:/data
 
+  rsshub:
+    image: diygod/rsshub:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      CACHE_TYPE: redis
+      REDIS_URL: redis://redis:6379/
+    depends_on:
+      - redis
+    ports:
+      - "1200:1200"
+
   adminer:
     image: adminer
     restart: always
