@@ -63,6 +63,24 @@ services:
     expose:
       - "8080"
 
+  rsshub:
+    image: diygod/rsshub:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      CACHE_TYPE: redis
+      REDIS_URL: redis://redis:6379/
+    depends_on:
+      - redis
+    expose:
+      - "1200"
+
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
   adminer:
     image: adminer
     restart: always
@@ -75,3 +93,4 @@ volumes:
   postgres_data:
   n8n_data:
   nocodb_data:
+  redis_data:
