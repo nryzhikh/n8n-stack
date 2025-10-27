@@ -63,6 +63,12 @@ services:
     expose:
       - "8080"
 
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
   adminer:
     image: adminer
     restart: always
