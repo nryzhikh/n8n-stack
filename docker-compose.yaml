@@ -21,7 +21,10 @@ services:
       - ./init:/docker-entrypoint-initdb.d
 
   n8n:
-    image: docker.n8n.io/n8nio/n8n
+    build:
+      context: .
+      dockerfile: n8n.Dockerfile
+    image: n8n-custom:latest
     restart: always
     depends_on: [postgres]
     environment:
@@ -45,7 +48,7 @@ services:
       - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
       - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
       - N8N_TRUSTED_PROXIES=loopback,linklocal,uniquelocal
-      - NODE_FUNCTION_ALLOW_BUILTIN=*
+      - NODE_FUNCTION_ALLOW_EXTERNAL=*
 
     volumes:
       - n8n_data:/home/node/.n8n
