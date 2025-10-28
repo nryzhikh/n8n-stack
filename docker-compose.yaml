@@ -81,6 +81,7 @@ services:
       CACHE_TYPE: redis
       REDIS_URL: redis://redis:6379/
       TWITTER_AUTH_TOKEN: ${TWITTER_AUTH_TOKEN}
+      ALLOW_USER_SUPPLY_UNSAFE_DOMAIN: true
     depends_on:
       - redis
     ports:
@@ -108,6 +109,7 @@ services:
       - --safebrowsing-disable-auto-update
       - --remote-debugging-address=0.0.0.0
       - --remote-debugging-port=9222
+      - about:blank
     ports:
       - "9222:9222"
     environment:
