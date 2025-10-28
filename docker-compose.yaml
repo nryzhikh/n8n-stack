@@ -76,38 +76,11 @@ services:
       NODE_ENV: production
       CACHE_TYPE: redis
       REDIS_URL: redis://redis:6379/
-      PUPPETEER_WS_ENDPOINT: ws://browserless:3000
       TWITTER_AUTH_TOKEN: ${TWITTER_AUTH_TOKEN}
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:1200/healthz"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
     depends_on:
       - redis
-      - browserless
     ports:
       - "1200:1200"
-
-  browserless:
-    image: browserless/chrome:latest
-    restart: unless-stopped
-    ports:
-      - "3000:3000"
-    environment:
-      - MAX_CONCURRENT_SESSIONS=10
-      - CONNECTION_TIMEOUT=60000
-      - MAX_QUEUE_LENGTH=10
-      - PREBOOT_CHROME=true
-    ulimits:
-      core:
-        hard: 0
-        soft: 0
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/pressure"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
   adminer:
     image: adminer
