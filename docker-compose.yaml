@@ -45,6 +45,7 @@ services:
       - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
       - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
       - N8N_TRUSTED_PROXIES=loopback,linklocal,uniquelocal
+      - NODE_FUNCTION_ALLOW_BUILTIN=*
 
     volumes:
       - n8n_data:/home/node/.n8n
@@ -109,8 +110,8 @@ services:
     environment:
       - CHROME_BIN=/usr/bin/chromium-browser
       - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-    shm_size: 256mb  # Shared memory for Chrome
-    mem_limit: 200m  # Strict memory limit
+    shm_size: 512mb  # Shared memory for Chrome (increased for better performance)
+    mem_limit: 400m  # Allow more memory for complex pages
     mem_reservation: 100m
     cap_add:
       - SYS_ADMIN
