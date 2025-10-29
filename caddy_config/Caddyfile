@@ -31,6 +31,12 @@ minio.nryzhikh.dev {
 
 minio-console.nryzhikh.dev {
     reverse_proxy minio:9001 {
-      flush_interval -1
+      header_up Host {host}
+      header_up X-Real-IP {remote_host}
+      header_up X-Forwarded-For {remote_host}
+      header_up X-Forwarded-Proto {scheme}
+      # Enable WebSocket support for MinIO console
+      header_up Connection {>Connection}
+      header_up Upgrade {>Upgrade}
     }
 }
