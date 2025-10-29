@@ -79,3 +79,18 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 
 https://rsshub.nryzhikh.dev/twitter/user/FabrizioRomano?format=json
+
+
+https://rsshub.nryzhikh.dev/rsshub/transform/json/https%3A%2F%2Fapi.github.com%2Frepos%2Fginuerzh%2Fgost%2Freleases/title=Gost%20releases&itemTitle=tag_name&itemLink=html_url&itemDesc=body
+
+
+
+https://rsshub.nryzhikh.dev/rsshub/transform/html/https%3A%2F%2Fimnks.com%2F/item=article&itemTitle=span%5Bclass=entry-title%5D&itemLink=span%5Bclass=entry-title%5D+a&itemDesc=div%5Bclass*=entry-summary%5D&itemPubDate=div%5Bclass=entry-meta%5D+time&itemPubDateAttr=datetime
+
+https%3A%2F%2Fwww.sports.ru%2Ffootball%2F
+
+
+rsshub://rsshub/transform/html/https%3A%2F%2Fwww.sports.ru%2Ffootball%2F/item=article&itemTitle=span%5Bclass=entry-title%5D&itemLink=span%5Bclass=entry-title%5D+a&itemDesc=div%5Bclass*=entry-summary%5D&itemPubDate=div%5Bclass=entry-meta%5D+time&itemPubDateAttr=datetime
+
+
+https://www.eyefootball.com/rss

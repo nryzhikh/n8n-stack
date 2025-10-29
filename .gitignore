@@ -8,3 +8,4 @@ nocodb_data/
 caddy_data/
 .ssh/
 /backups/
+*.md
