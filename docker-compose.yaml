@@ -128,11 +128,14 @@ services:
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      # Tell MinIO it's behind a proxy
+      MINIO_BROWSER_REDIRECT_URL: https://minio-console.nryzhikh.dev
+      MINIO_SERVER_URL: https://minio.nryzhikh.dev
     volumes:
       - minio_data:/data
-    ports:
-      - "9000:9000"  # API
-      - "9001:9001"  # Console
+    expose:
+      - "9000"
+      - "9001"
     mem_limit: 512m
     mem_reservation: 256m
     healthcheck:
