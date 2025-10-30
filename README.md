@@ -94,3 +94,7 @@ rsshub://rsshub/transform/html/https%3A%2F%2Fwww.sports.ru%2Ffootball%2F/item=ar
 
 
 https://www.eyefootball.com/rss
+
+
+# 1. Create FreshRSS database
+docker exec -it n8n-stack-postgres-1 psql -U your_postgres_user -c "CREATE DATABASE freshrss;"

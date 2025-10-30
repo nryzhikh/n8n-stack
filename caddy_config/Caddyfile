@@ -45,3 +45,13 @@ minio-console.nryzhikh.dev {
         header_up Upgrade {>Upgrade}
     }
 }
+
+freshrss.nryzhikh.dev {
+    reverse_proxy freshrss:80 {
+        flush_interval -1
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+}
