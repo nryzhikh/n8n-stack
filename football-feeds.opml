@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Football Feeds</title>
+  </head>
+  <body>
+    <outline text="Soccer News" title="Soccer News">
+      <outline type="rss" text="Reddit Soccer" xmlUrl="https://www.reddit.com/r/soccer/new.rss" />
+      <outline type="rss" text="Reddit Football Memes" xmlUrl="https://www.reddit.com/r/footballmemes/new.rss" />
+      <outline type="rss" text="Four Four Two" xmlUrl="https://www.fourfourtwo.com/feeds.xml" />
+      <outline type="rss" text="The Guardian Football" xmlUrl="https://www.theguardian.com/football/rss" />
+      <outline type="rss" text="Championat Articles" xmlUrl="https://www.championat.com/rss/article/football" />
+      <outline type="rss" text="Championat News" xmlUrl="https://www.championat.com/rss/news/football" />
+      <outline type="rss" text="Sports.ru" xmlUrl="https://www.sports.ru/rss/rubric.xml?s=208" />
+      <outline type="rss" text="Utkin Blog" xmlUrl="https://www.sports.ru/tribuna/blogs/utkin/rss.xml" />
+      <outline type="rss" text="SoccerStats247" xmlUrl="https://www.soccerstats247.com/CompetitionFeed.aspx?langId=1&leagueId=1457" />
+    </outline>
+    
+    <outline text="Twitter Accounts" title="Twitter Accounts">
+      <outline type="rss" text="FootyHumour" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/FootyHumour" />
+      <outline type="rss" text="futbol_rustream" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/futbol_rustream" />
+      <outline type="rss" text="OptaJoe" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/OptaJoe" />
+      <outline type="rss" text="Squawka" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/Squawka" />
+      <outline type="rss" text="Squawka Live" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/Squawka_Live" />
+      <outline type="rss" text="WhoScored" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/WhoScored" />
+      <outline type="rss" text="Transfermarkt UK" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/TMuk_news" />
+      <outline type="rss" text="UEFA" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/uefa" />
+      <outline type="rss" text="Championat" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/championat" />
+      <outline type="rss" text="Fabrizio Romano" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/FabrizioRomano" />
+      <outline type="rss" text="David Ornstein" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/David_Ornstein" />
+      <outline type="rss" text="Sky Sports News" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/SkySportsNews" />
+      <outline type="rss" text="The Athletic FC" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/TheAthleticFC" />
+      <outline type="rss" text="BBC Sport" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/BBCSport" />
+      <outline type="rss" text="Four Four Two" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/FourFourTwo" />
+      <outline type="rss" text="FotMob" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/FotMob" />
+      <outline type="rss" text="Atletico English" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/atletienglish" />
+      <outline type="rss" text="Atletico" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/Atleti" />
+      <outline type="rss" text="All Football App" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/allfootballapp" />
+      <outline type="rss" text="GoalZoneX" xmlUrl="https://rsshub.nryzhikh.dev/twitter/user/GoalZoneX" />
+    </outline>
+    
+    <outline text="Instagram" title="Instagram">
+      <outline type="rss" text="Football Memes Official" xmlUrl="https://rsshub.nryzhikh.dev/instagram/2/user/football.memes.official" />
+      <outline type="rss" text="Squawka Football" xmlUrl="https://rsshub.nryzhikh.dev/instagram/2/user/squawkafootball" />
+      <outline type="rss" text="WhoScored Official" xmlUrl="https://rsshub.nryzhikh.dev/instagram/2/user/officialwhoscored" />
+      <outline type="rss" text="Transfermarkt Official" xmlUrl="https://rsshub.nryzhikh.dev/instagram/2/user/transfermarkt_official" />
+      <outline type="rss" text="Sports.ru" xmlUrl="https://rsshub.nryzhikh.dev/instagram/2/user/sportsru" />
+      <outline type="rss" text="The Athletic FC" xmlUrl="https://rsshub.nryzhikh.dev/instagram/2/user/theathleticfc" />
+      <outline type="rss" text="BBC Sport" xmlUrl="https://rsshub.nryzhikh.dev/instagram/2/user/bbcsport" />
+      <outline type="rss" text="Four Four Two UK" xmlUrl="https://rsshub.nryzhikh.dev/instagram/2/user/fourfourtwouk" />
+    </outline>
+    
+    <outline text="Telegram Channels" title="Telegram Channels">
+      <outline type="rss" text="Football Memes" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fmems" />
+      <outline type="rss" text="Sports.ru" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/sportsru" />
+      <outline type="rss" text="Transfermarkt Official" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/transfermarkt_off" />
+      <outline type="rss" text="Championat" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/championat" />
+      <outline type="rss" text="Premier Liga" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/premierliga" />
+      <outline type="rss" text="Match TV" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Match_TV" />
+      <outline type="rss" text="FC Barcelona Worldwide" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fc_barcelona_worldwide" />
+      <outline type="rss" text="All Football" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/allfootballss" />
+      <outline type="rss" text="WhoScored & Squawka" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/whoscored_squawka" />
+      <outline type="rss" text="Premier League News" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/premier_league_football_news" />
+      <outline type="rss" text="ESPN FC News" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Espnfc_news" />
+      <outline type="rss" text="Football Highlights" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Football_Highlights_s24" />
+    </outline>
+    
+    <outline text="Club Channels - England" title="Club Channels - England">
+      <outline type="rss" text="Newcastle United" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Newcastle_United" />
+      <outline type="rss" text="Manchester United" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/ManchesterUnited" />
+      <outline type="rss" text="Aston Villa" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Aston_Villa" />
+      <outline type="rss" text="Tottenham" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Tottenham" />
+      <outline type="rss" text="Manchester City" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Manchester_City" />
+      <outline type="rss" text="Liverpool" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Liverpool" />
+      <outline type="rss" text="Chelsea" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Chelsea" />
+      <outline type="rss" text="Arsenal" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Arsenal" />
+    </outline>
+    
+    <outline text="Club Channels - Spain" title="Club Channels - Spain">
+      <outline type="rss" text="Real Madrid" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Real_Madrid" />
+      <outline type="rss" text="Barcelona EN" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/BarcelonaEn" />
+      <outline type="rss" text="Atletico Madrid" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Madrid_Atletico" />
+      <outline type="rss" text="Sevilla" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Sevilla" />
+      <outline type="rss" text="Real Madrid News" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/RealMadrid_newsFC" />
+      <outline type="rss" text="Real Madrid Infos" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/RealMadridinfos" />
+    </outline>
+    
+    <outline text="Club Channels - Germany" title="Club Channels - Germany">
+      <outline type="rss" text="Bayern Munich" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Bayern_Munich" />
+      <outline type="rss" text="Borussia Dortmund" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Borussia_Dortmund" />
+      <outline type="rss" text="Bayer Leverkusen" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Bayer_Leverkusen" />
+    </outline>
+    
+    <outline text="Club Channels - Italy" title="Club Channels - Italy">
+      <outline type="rss" text="Napoli" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Napoli" />
+      <outline type="rss" text="Inter Milan" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Inter_Milan" />
+      <outline type="rss" text="Juventus" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Juventus" />
+      <outline type="rss" text="AC Milan" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Milan" />
+    </outline>
+    
+    <outline text="Club Channels - Other" title="Club Channels - Other">
+      <outline type="rss" text="PSG" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/PSG" />
+      <outline type="rss" text="Ajax" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Ajax" />
+      <outline type="rss" text="Benfica" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Benfica" />
+    </outline>
+    
+    <outline text="Russian Clubs" title="Russian Clubs">
+      <outline type="rss" text="Premier Liga" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/premierliga" />
+      <outline type="rss" text="FC CSKA Moscow" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/pfccskamoscow" />
+      <outline type="rss" text="FC Zenit" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fczenit" />
+      <outline type="rss" text="FC Dynamo" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fcdynamo" />
+      <outline type="rss" text="FC Krasnodar" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fckrasnodar" />
+      <outline type="rss" text="FC Lokomotiv" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fclokomotiv" />
+      <outline type="rss" text="FC Rostov" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fcrostov_official" />
+      <outline type="rss" text="FC Rubin Kazan" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fcrk1958" />
+      <outline type="rss" text="FC Krylia Sovetov" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fckssamara_official" />
+      <outline type="rss" text="FC Pari NN" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fcparinn" />
+      <outline type="rss" text="FC Akron" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fcakron" />
+      <outline type="rss" text="FC Sochi" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Sochipfc" />
+      <outline type="rss" text="FC SMT" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/fcsmtg" />
+    </outline>
+    
+    <outline text="General Football News" title="General Football News">
+      <outline type="rss" text="ESPN Soccer" xmlUrl="https://rsshub.nryzhikh.dev/espn/news/soccer" />
+      <outline type="rss" text="Goal Zone" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/goalinesportx" />
+      <outline type="rss" text="JF Ball" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/jfball" />
+      <outline type="rss" text="Soccer Victor" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/soccervictor" />
+      <outline type="rss" text="Transfer News" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/transfer_news_football" />
+      <outline type="rss" text="Premier League News TG" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Premier_League_News_TG" />
+      <outline type="rss" text="Sofascore UK" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/sofascore_uk" />
+      <outline type="rss" text="Football Pundits TV" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/FOOTBALL_PUNDITS_TV" />
+      <outline type="rss" text="BR Football News" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/br_football_news" />
+      <outline type="rss" text="UEFA Champions League" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Uefa_Champions_Leagueee" />
+      <outline type="rss" text="Goal Sport Football" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/goal_sport_football" />
+      <outline type="rss" text="Premier League Update" xmlUrl="https://rsshub.nryzhikh.dev/telegram/channel/Premier_League_Update" />
+    </outline>
+  </body>
+</opml>

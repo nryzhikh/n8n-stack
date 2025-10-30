@@ -197,6 +197,46 @@ services:
     mem_limit: 256m
     mem_reservation: 128m
 
+  ttrss:
+    image: wangqiru/ttrss:latest
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      SELF_URL_PATH: https://ttrss.nryzhikh.dev
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ttrss
+      DB_USER: ${POSTGRES_USER}
+      DB_PASS: ${POSTGRES_PASSWORD}
+      ENABLE_PLUGINS: auth_internal,fever
+      SESSION_COOKIE_LIFETIME: 24
+      FEED_LOG_QUIET: "true"
+    volumes:
+      - ttrss_data:/var/www/html
+    expose:
+      - "80"
+    mem_limit: 256m
+    mem_reservation: 128m
+
+  ttrss-updater:
+    image: wangqiru/ttrss:latest
+    restart: unless-stopped
+    depends_on:
+      - ttrss
+    environment:
+      SELF_URL_PATH: https://ttrss.nryzhikh.dev
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ttrss
+      DB_USER: ${POSTGRES_USER}
+      DB_PASS: ${POSTGRES_PASSWORD}
+    volumes:
+      - ttrss_data:/var/www/html
+    command: /updater.sh
+    mem_limit: 128m
+    mem_reservation: 64m
+
 volumes:
   caddy_data:
   postgres_data:
@@ -205,4 +245,5 @@ volumes:
   redis_data:
   minio_data:
   freshrss_data:
-  freshrss_extensions: 
+  freshrss_extensions:
+  ttrss_data: 
