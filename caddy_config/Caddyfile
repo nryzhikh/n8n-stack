@@ -26,21 +26,12 @@ adminer.nryzhikh.dev {
 minio.nryzhikh.dev {
     reverse_proxy minio:9000 {
         flush_interval -1
-        header_up Host {host}
-        header_up X-Real-IP {remote_host}
-        header_up X-Forwarded-For {remote_host}
-        header_up X-Forwarded-Proto {scheme}
     }
 }
 
 minio-console.nryzhikh.dev {
     reverse_proxy minio:9001 {
         flush_interval -1
-        header_up Host {upstream_hostport}
-        header_up X-Real-IP {remote_host}
-        header_up X-Forwarded-For {remote_host}
-        header_up X-Forwarded-Proto {scheme}
-        # WebSocket support is automatic in Caddy v2
     }
 }
 
