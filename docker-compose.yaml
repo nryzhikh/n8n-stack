@@ -49,6 +49,7 @@ services:
       - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
       - N8N_TRUSTED_PROXIES=loopback,linklocal,uniquelocal
       - NODE_FUNCTION_ALLOW_EXTERNAL=*
+      - N8N_RUNNERS_INSECURE_MODE=true
       - N8N_RUNNERS_ALLOW_PROTOTYPE_MUTATION=true
 
     volumes:
