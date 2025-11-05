@@ -92,6 +92,8 @@ services:
       REDIS_URL: redis://redis:6379/
       TWITTER_AUTH_TOKEN: ${TWITTER_AUTH_TOKEN}
       ALLOW_USER_SUPPLY_UNSAFE_DOMAIN: true
+      IG_USERNAME: ${IG_USERNAME}
+      IG_PASSWORD: ${IG_PASSWORD}
     depends_on:
       - redis
     ports:
@@ -160,84 +162,6 @@ services:
     depends_on: [postgres]
     expose:
       - "8080"
-
-  freshrss:
-    image: freshrss/freshrss:latest
-    restart: unless-stopped
-    depends_on:
-      - postgres
-      - redis
-    environment:
-      CRON_MIN: '13,43'  # Update feeds every 30 minutes
-      TZ: ${GENERIC_TIMEZONE}
-      
-      # Database configuration (using your existing PostgreSQL)
-      DB_TYPE: pgsql
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_NAME: freshrss
-      DB_USER: ${POSTGRES_USER}
-      DB_PASSWORD: ${POSTGRES_PASSWORD}
-      
-      # Redis configuration for performance caching
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      
-      # Optional: Pre-configure admin user
-      FRESHRSS_INSTALL_ADMIN_USERNAME: ${FRESHRSS_ADMIN_USER:-admin}
-      FRESHRSS_INSTALL_ADMIN_PASSWORD: ${FRESHRSS_ADMIN_PASSWORD:-change_me}
-      FRESHRSS_INSTALL_ADMIN_EMAIL: ${FRESHRSS_ADMIN_EMAIL:-admin@example.com}
-      
-      # API access for n8n
-      FRESHRSS_INSTALL_ADMIN_API_PASSWORD: ${FRESHRSS_API_PASSWORD}
-      
-    volumes:
-      - freshrss_data:/var/www/FreshRSS/data
-      - freshrss_extensions:/var/www/FreshRSS/extensions
-    expose:
-      - "80"
-    mem_limit: 256m
-    mem_reservation: 128m
-
-  ttrss:
-    image: wangqiru/ttrss:latest
-    restart: unless-stopped
-    depends_on:
-      - postgres
-    environment:
-      SELF_URL_PATH: https://ttrss.nryzhikh.dev
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_NAME: ttrss
-      DB_USER: ${POSTGRES_USER}
-      DB_PASS: ${POSTGRES_PASSWORD}
-      ENABLE_PLUGINS: auth_internal,fever
-      SESSION_COOKIE_LIFETIME: 24
-      FEED_LOG_QUIET: "true"
-    volumes:
-      - ttrss_data:/var/www/html
-    expose:
-      - "80"
-    mem_limit: 256m
-    mem_reservation: 128m
-
-  ttrss-updater:
-    image: wangqiru/ttrss:latest
-    restart: unless-stopped
-    depends_on:
-      - ttrss
-    environment:
-      SELF_URL_PATH: https://ttrss.nryzhikh.dev
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_NAME: ttrss
-      DB_USER: ${POSTGRES_USER}
-      DB_PASS: ${POSTGRES_PASSWORD}
-    volumes:
-      - ttrss_data:/var/www/html
-    command: /updater.sh
-    mem_limit: 128m
-    mem_reservation: 64m
 
 volumes:
   caddy_data:
