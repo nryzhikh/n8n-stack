@@ -84,7 +84,7 @@ services:
       - redis_data:/data
 
   rsshub:
-    image: diygod/rsshub:latest
+    image: diygod/rsshub:chromium-bundled
     restart: unless-stopped
     environment:
       NODE_ENV: production
