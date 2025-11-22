@@ -1,0 +1,31 @@
+{
+    "DATA": {
+      "ID": "2cJYOpxn",
+      "LAYOUT": "RESULTS_FIXTURES",
+      "SHORT_NAME": "Балтика",
+      "GENDER_ID": 1,
+      "COUNTRY_ID": 158,
+      "COUNTRY_NAME": "Россия",
+      "IMAGE_PATH": "https://www.flashscore.com/res/image/data/GIpYcdjl-xzIYVtuE.png",
+      "IMM": "2cJYOpxn",
+      "IMAGE_WIDTH": "100",
+      "IMAGE_ID": "GIpYcdjl-xzIYVtuE",
+      "IME": "",
+      "IMAGE_TABLE_PATH": "https://www.flashscore.com/res/image/data/652hoJ6r-xzIYVtuE.png",
+      "NAME": "Балтика",
+      "TYPE_ID": 1,
+      "TYPE_NAME": "Команда",
+      "PARENT_NAME": "FK Baltika Kaliningrad",
+      "TVN": "РосТех Арена",
+      "TTN": "Калининград",
+      "TVC": "35 016",
+      "PCI": "2DpFKjGA",
+      "ACTUAL_TOURNAMENT_TYPE": "table",
+      "ACTUAL_TOURNAMENT_STAGE_ID": "0UC6tdRa",
+      "ACTUAL_TOURNAMENT_SEASON_ID": "n7RPVIfJ",
+      "TEAM_ID": "2DpFKjGA",
+      "TEAM_PARTICIPANT_TYPE": 1,
+      "TEAM_NAME": "FK Baltika Kaliningrad",
+      "SPORT_ID": 1
+    }
+  }
