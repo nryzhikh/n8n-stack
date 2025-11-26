@@ -1,0 +1,3 @@
+[submodule "apps/rsshub"]
+	path = apps/rsshub
+	url = https://github.com/DIYgod/RSSHub.git

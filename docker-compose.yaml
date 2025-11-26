@@ -86,44 +86,80 @@ services:
       - redis_data:/data
 
   rsshub:
-    image: diygod/rsshub:chromium-bundled
+    image: ghcr.io/nryzhikh/rsshub-custom:latest
+    # OR build locally:
+    # build:
+    #   context: ./apps/rsshub
+    #   dockerfile: Dockerfile
+    #   args:
+    #     PUPPETEER_SKIP_DOWNLOAD: 1  # Skip bundled Chromium
     restart: unless-stopped
     environment:
       NODE_ENV: production
       CACHE_TYPE: redis
       REDIS_URL: redis://redis:6379/
+      
+      # Point to your Chrome container
+      # PUPPETEER_WS_ENDPOINT: ws://chrome:9222
+      # Or if using browserless:
+      PUPPETEER_WS_ENDPOINT: ws://browserless:3000
+
       TWITTER_AUTH_TOKEN: ${TWITTER_AUTH_TOKEN}
       ALLOW_USER_SUPPLY_UNSAFE_DOMAIN: true
       IG_USERNAME: ${IG_USERNAME}
       IG_PASSWORD: ${IG_PASSWORD}
     depends_on:
       - redis
+      - browserless  # Ensure Chrome starts first
     ports:
       - "1200:1200"
-    mem_limit: 256m  # Limit RSSHub memory
+    mem_limit: 256m  # Can be lower without Chromium
     mem_reservation: 128m
+
+  browserless: # marked
+    image: browserless/chrome # marked
+    restart: always # marked
+    ulimits: # marked
+        core: # marked
+            hard: 0 # marked
+            soft: 0 # marked
+    healthcheck: # marked
+        test: ['CMD', 'curl', '-f', 'http://localhost:3000/pressure'] # marked
+        interval: 30s # marked
+        timeout: 10s # marked
+        retries: 3 # marked
+    ports:
+      - "3000:3000"
+    shm_size: 512mb  # Shared memory for Chrome (increased for better performance)
+    mem_limit: 400m  # Allow more memory for complex pages
+    mem_reservation: 100m
+  
       
   chrome:
     image: zenika/alpine-chrome:with-puppeteer
     restart: unless-stopped
     command: 
-      - chromium-browser
-      - --headless
-      - --disable-gpu
-      - --disable-software-rasterizer
-      - --disable-dev-shm-usage
-      - --no-sandbox
-      - --disable-setuid-sandbox
-      - --disable-extensions
-      - --disable-background-networking
-      - --disable-sync
-      - --metrics-recording-only
-      - --mute-audio
-      - --no-first-run
-      - --safebrowsing-disable-auto-update
-      - --remote-debugging-address=0.0.0.0
-      - --remote-debugging-port=9222
-      - about:blank
+    - chromium-browser
+    - --headless
+    - --disable-gpu
+    - --disable-software-rasterizer
+    - --disable-dev-shm-usage
+    - --no-sandbox
+    - --disable-setuid-sandbox
+    - --disable-extensions
+    - --disable-background-networking
+    - --disable-sync
+    - --metrics-recording-only
+    - --mute-audio
+    - --no-first-run
+    - --safebrowsing-disable-auto-update
+    - --remote-debugging-address=0.0.0.0
+    - --remote-debugging-port=9222
+    - --disable-features=IsolateOrigins,site-per-process
+    - --disable-site-isolation-trials
+    - --remote-allow-origins=*
+    - about:blank
+   
     ports:
       - "9222:9222"
     environment:
