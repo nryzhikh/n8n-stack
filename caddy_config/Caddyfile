@@ -37,8 +37,8 @@ minio-console.nryzhikh.dev {
     }
 }
 
-ttrss.nryzhikh.dev {
-    reverse_proxy ttrss:80 {
-        flush_interval -1
+browserless.nryzhikh.dev {
+    reverse_proxy browserless:3000 {
+      flush_interval -1
     }
 }
