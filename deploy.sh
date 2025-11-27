@@ -14,6 +14,7 @@ ENV_FILE=".env"
 # Remote server
 REMOTE_USER="deploy"
 REMOTE_HOST="165.232.125.58"
+# REMOTE_HOST="89.191.234.118"
 REMOTE_PATH="/home/deploy/n8n-stack"
 # ==============================================================================
 

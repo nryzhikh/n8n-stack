@@ -86,13 +86,14 @@ services:
       - redis_data:/data
 
   rsshub:
-    image: ghcr.io/nryzhikh/rsshub-custom:latest
-    # OR build locally:
-    # build:
-    #   context: ./apps/rsshub
-    #   dockerfile: Dockerfile
-    #   args:
-    #     PUPPETEER_SKIP_DOWNLOAD: 1  # Skip bundled Chromium
+    # image: ghcr.io/nryzhikh/rsshub-custom:latest
+    # Build locally instead:
+    build:
+      context: ./apps/rsshub
+      dockerfile: Dockerfile
+      args:
+        PUPPETEER_SKIP_DOWNLOAD: 1  # Skip bundled Chromium
+    image: rsshub-custom:latest  # Tag the built image
     restart: unless-stopped
     environment:
       NODE_ENV: production
