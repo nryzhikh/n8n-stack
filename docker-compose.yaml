@@ -86,14 +86,7 @@ services:
       - redis_data:/data
 
   rsshub:
-    # image: ghcr.io/nryzhikh/rsshub-custom:latest
-    # Build locally instead:
-    build:
-      context: ./apps/rsshub
-      dockerfile: Dockerfile
-      args:
-        PUPPETEER_SKIP_DOWNLOAD: 1  # Skip bundled Chromium
-    image: rsshub-custom:latest  # Tag the built image
+    image: ghcr.io/nryzhikh/rsshub:latest
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -103,7 +96,7 @@ services:
       # Point to your Chrome container
       # PUPPETEER_WS_ENDPOINT: ws://chrome:9222
       # Or if using browserless:
-      PUPPETEER_WS_ENDPOINT: ws://brow:9222
+      PUPPETEER_WS_ENDPOINT: ws://browserless:3000
 
       TWITTER_AUTH_TOKEN: ${TWITTER_AUTH_TOKEN}
       ALLOW_USER_SUPPLY_UNSAFE_DOMAIN: true

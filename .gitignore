@@ -9,3 +9,5 @@ caddy_data/
 .ssh/
 /backups/
 *.md
+apps/rsshub/*
+!apps/rsshub/.git
