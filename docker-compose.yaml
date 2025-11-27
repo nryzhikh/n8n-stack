@@ -22,8 +22,8 @@ services:
 
   n8n:
     build:
-      context: .
-      dockerfile: n8n.Dockerfile
+      context: ./apps/n8n
+      dockerfile: Dockerfile
     image: n8n-custom:latest
     restart: always
     depends_on: [postgres]
@@ -102,7 +102,7 @@ services:
       # Point to your Chrome container
       # PUPPETEER_WS_ENDPOINT: ws://chrome:9222
       # Or if using browserless:
-      PUPPETEER_WS_ENDPOINT: ws://browserless:3000
+      PUPPETEER_WS_ENDPOINT: ws://brow:9222
 
       TWITTER_AUTH_TOKEN: ${TWITTER_AUTH_TOKEN}
       ALLOW_USER_SUPPLY_UNSAFE_DOMAIN: true
