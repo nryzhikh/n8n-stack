@@ -202,3 +202,10 @@ MIT License - See LICENSE file for details
 ---
 
 **Current Production Server**: `89.191.234.118`
+
+rsshub:
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t ghcr.io/nryzhikh/rsshub:latest \
+  --push \
+  .
