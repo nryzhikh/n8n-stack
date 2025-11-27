@@ -1,48 +1,58 @@
 # n8n-stack
 
-Self-hosted **n8n + NocoDB + Adminer + PostgreSQL + Caddy** stack.
+Self-hosted **n8n + NocoDB + Adminer + PostgreSQL + Caddy + RSSHub** automation stack with SSL.
 
-## Quick start
+## 📦 What's Included
+
+- **n8n** - Workflow automation platform
+- **NocoDB** - No-code database (Airtable alternative)
+- **PostgreSQL** - Primary database
+- **Adminer** - Database management interface
+- **Caddy** - Reverse proxy with automatic SSL
+- **RSSHub** - RSS feed aggregator and transformer
+
+## 🚀 Quick Start
+
+### 1. Server Initialization (New VPS)
+
+**For a fresh Ubuntu VPS**, use the automated setup script:
+
 ```bash
+# See detailed instructions in:
+./scripts/SERVER_SETUP.md
+```
 
-# login to vps via ssh from terminal
-ssh root@165.232.125.58
+The initialization script will:
+- ✅ Create secure `deploy` user
+- ✅ Install Docker & Docker Compose
+- ✅ Configure firewall
+- ✅ Disable root login & password authentication
+- ✅ Set up Fail2Ban protection
 
-# stack repo
-https://github.com/nryzhikh/n8n-stack.git
+**Quick setup:**
+```bash
+# 1. Copy script to your server
+scp scripts/init_server.sh root@YOUR_SERVER_IP:/root/
 
-# create non-root user with strong password copy ssh key to that user
-adduser deploy
-usermod -aG sudo deploy
-rsync --archive --chown=deploy:deploy ~/.ssh /home/deploy
+# 2. Run on server
+ssh root@YOUR_SERVER_IP
+chmod +x /root/init_server.sh
+/root/init_server.sh
+```
 
+📖 **[Full Server Setup Guide →](scripts/SERVER_SETUP.md)**
 
-# log off root user and login with new user
-exit
-ssh deploy@165.232.125.58 
+### 2. Deploy the Stack
 
-# disable root ssh login
-sudo nano /etc/ssh/sshd_config
-    # set options:
-    PermitRootLogin no
-    PasswordAuthentication no
+After server initialization, deploy from your local machine:
 
-# Reload ssh
-sudo systemctl restart ssh
+```bash
+# Update the server IP in deploy.sh
+nano deploy.sh  # Change REMOTE_HOST="YOUR_SERVER_IP"
 
-# Basic firewall
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw allow 22
-sudo ufw allow 80
-sudo ufw allow 443
-sudo ufw enable
-
-
-# Docker verified key
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
+# Run deployment
+./deploy.sh
+```
 
 
 
@@ -50,61 +60,145 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 
 
+The deployment script automatically:
+- Builds and copies Docker images
+- Sets up environment configuration
+- Starts all services with Docker Compose
+- Configures SSL certificates via Caddy
+
+## 🔧 Manual Deployment (Alternative)
+
+If you prefer manual deployment:
+
+```bash
+# 1. Clone the repository on server
+ssh deploy@YOUR_SERVER_IP
 git clone https://github.com/nryzhikh/n8n-stack.git
 cd n8n-stack
+
+# 2. Configure environment
 cp .env.example .env
-nano .env
+nano .env  # Update your settings
+
+# 3. Start the stack
 docker compose up -d
 
-
-
-DNS: https://www.duckdns.org/
-
-
+# 4. Check logs
 docker logs --tail 50 n8n-stack-n8n-1
+```
 
+## 🌐 DNS Setup
 
-scp .env deploy@162.232.125.58:/home/deploy/n8n-stack
+Configure your domain to point to your server:
 
-sudo chown -R deploy:deploy /home/deploy/n8n-stack
+- **Recommended**: Use [DuckDNS](https://www.duckdns.org/) for free dynamic DNS
+- Or use your own domain registrar
 
+Add A records:
+```
+n8n.yourdomain.com     → YOUR_SERVER_IP
+nocodb.yourdomain.com  → YOUR_SERVER_IP
+rsshub.yourdomain.com  → YOUR_SERVER_IP
+```
 
-# Swapfile
+## 💾 Performance Optimization
+
+### Create Swap File (Recommended for VPS with <2GB RAM)
+
+```bash
 sudo fallocate -l 1G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
 
 
 
-https://rsshub.nryzhikh.dev/twitter/user/FabrizioRomano?format=json
+## 📡 RSSHub Usage Examples
 
+Transform any website into RSS feeds:
 
-https://rsshub.nryzhikh.dev/rsshub/transform/json/https%3A%2F%2Fapi.github.com%2Frepos%2Fginuerzh%2Fgost%2Freleases/title=Gost%20releases&itemTitle=tag_name&itemLink=html_url&itemDesc=body
+### JSON API Transform
+```
+https://rsshub.yourdomain.com/rsshub/transform/json/
+  https%3A%2F%2Fapi.github.com%2Frepos%2Fginuerzh%2Fgost%2Freleases/
+  title=Gost%20releases&itemTitle=tag_name&itemLink=html_url&itemDesc=body
+```
 
+### HTML Page Transform
+```
+https://rsshub.yourdomain.com/rsshub/transform/html/
+  https%3A%2F%2Fexample.com%2F/
+  item=article&itemTitle=h2&itemLink=a&itemDesc=.content
+```
 
+### Social Media Feeds
+```
+https://rsshub.yourdomain.com/twitter/user/username?format=json
+```
 
-https://rsshub.nryzhikh.dev/rsshub/transform/html/https%3A%2F%2Fimnks.com%2F/item=article&itemTitle=span%5Bclass=entry-title%5D&itemLink=span%5Bclass=entry-title%5D+a&itemDesc=div%5Bclass*=entry-summary%5D&itemPubDate=div%5Bclass=entry-meta%5D+time&itemPubDateAttr=datetime
+## 🛠️ Useful Commands
 
-https%3A%2F%2Fwww.sports.ru%2Ffootball%2F
+### View Logs
+```bash
+# All services
+docker compose logs -f
 
+# Specific service
+docker logs -f n8n-stack-n8n-1
+docker logs -f n8n-stack-nocodb-1
+```
 
-rsshub://rsshub/transform/html/https%3A%2F%2Fwww.sports.ru%2Ffootball%2F/item=article&itemTitle=span%5Bclass=entry-title%5D&itemLink=span%5Bclass=entry-title%5D+a&itemDesc=div%5Bclass*=entry-summary%5D&itemPubDate=div%5Bclass=entry-meta%5D+time&itemPubDateAttr=datetime
+### Restart Services
+```bash
+docker compose restart
+```
 
+### Update Stack
+```bash
+./deploy.sh
+```
 
-https://www.eyefootball.com/rss
+### Database Management
 
+Create additional databases:
+```bash
+docker exec -it n8n-stack-postgres-1 psql -U your_postgres_user -c "CREATE DATABASE dbname;"
+```
 
-# 1. Create FreshRSS database
-docker exec -it n8n-stack-postgres-1 psql -U your_postgres_user -c "CREATE DATABASE freshrss;"
+### Backup
+```bash
+# Automated backups (see scripts/backup.sh)
+./scripts/backup.sh
+```
 
+## 🔐 Security Features
 
-docker buildx build \
-  --platform linux/amd64 \
-  -t ghcr.io/nryzhikh/rsshub-custom:latest \
-  -f apps/rsshub/Dockerfile \
-  apps/rsshub
+- ✅ SSH key authentication only
+- ✅ Root login disabled
+- ✅ UFW firewall configured
+- ✅ Fail2Ban for SSH protection
+- ✅ Automatic SSL certificates via Caddy
+- ✅ Non-root user for deployment
+- ✅ Isolated Docker networks
 
+## 📚 Additional Resources
 
-docker push ghcr.io/nryzhikh/rsshub-custom:latest
+- [Server Setup Guide](scripts/SERVER_SETUP.md) - Detailed VPS initialization
+- [n8n Documentation](https://docs.n8n.io/)
+- [NocoDB Documentation](https://docs.nocodb.com/)
+- [RSSHub Documentation](https://docs.rsshub.app/)
+- [Caddy Documentation](https://caddyserver.com/docs/)
+
+## 🤝 Contributing
+
+Issues and pull requests are welcome!
+
+## 📝 License
+
+MIT License - See LICENSE file for details
+
+---
+
+**Current Production Server**: `89.191.234.118`
