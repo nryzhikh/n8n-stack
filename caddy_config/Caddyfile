@@ -18,7 +18,7 @@ rsshub.nryzhikh.dev {
 
 adminer.nryzhikh.dev {
     basic_auth * {
-        admin $$2a$$14$$qdqs.ngzStZWRizCFs28EOXIpwgF3RYnSHvX/SEbjqtbDV7KbG9H6
+        admin $2a$14$qdqs.ngzStZWRizCFs28EOXIpwgF3RYnSHvX/SEbjqtbDV7KbG9H6
     }
     reverse_proxy adminer:8080
 }
