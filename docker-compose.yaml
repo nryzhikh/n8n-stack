@@ -97,6 +97,7 @@ services:
       # PUPPETEER_WS_ENDPOINT: ws://chrome:9222
       # Or if using browserless:
       PUPPETEER_WS_ENDPOINT: ws://browserless:3000
+      REQUEST_TIMEOUT: 60000
 
       TWITTER_AUTH_TOKEN: ${TWITTER_AUTH_TOKEN}
       ALLOW_USER_SUPPLY_UNSAFE_DOMAIN: true
