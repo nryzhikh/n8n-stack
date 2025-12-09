@@ -89,7 +89,7 @@ services:
     image: ghcr.io/nryzhikh/rsshub:latest
     restart: unless-stopped
     environment:
-      TZ: ${GENERIC_TIMEZONE}
+      TZ: UTC
       NODE_ENV: production
       CACHE_TYPE: redis
       REDIS_URL: redis://redis:6379/
@@ -115,6 +115,8 @@ services:
   browserless: # marked
     image: browserless/chrome # marked
     restart: always # marked
+    environment:
+      TZ: UTC
     ulimits: # marked
         core: # marked
             hard: 0 # marked
