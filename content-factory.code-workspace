@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "RSSHub",
+			"path": "../RSSHub"
+		},
+		{
+			"name": "n8n-stack",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
