@@ -1,5 +1,5 @@
 # Custom n8n with Chrome Remote Interface support
-FROM docker.n8n.io/n8nio/n8n:latest
+FROM docker.n8n.io/n8nio/n8n
 
 USER root
 
