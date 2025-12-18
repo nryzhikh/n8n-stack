@@ -24,7 +24,6 @@ services:
     build:
       context: ./apps/n8n
       dockerfile: Dockerfile
-    image: n8n-custom:latest
     restart: always
     depends_on: [postgres]
     environment:
