@@ -13,8 +13,8 @@ ENV_FILE=".env"
 
 # Remote server
 REMOTE_USER="deploy"
-REMOTE_HOST="165.232.125.58"
-# REMOTE_HOST="89.191.234.118"
+# REMOTE_HOST="165.232.125.58"
+REMOTE_HOST="89.191.234.118"
 REMOTE_PATH="/home/deploy/n8n-stack"
 # ==============================================================================
 
@@ -48,7 +48,7 @@ backup_db() {
   ts=$(date +%Y%m%d_%H%M%S)
   local outfile="${BACKUP_DIR}/n8n_${ts}.sql"
   echo "Creating local backup: $outfile"
-  docker exec -t "$POSTGRES_CONTAINER" pg_dump -U n8n n8n > "$outfile"
+  docker exec -t "$POSTGRES_CONTAINER" pg_dump -U postgres n8n > "$outfile"
   echo "Backup complete: $outfile"
 }
 
