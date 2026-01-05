@@ -48,7 +48,7 @@ backup_db() {
   ts=$(date +%Y%m%d_%H%M%S)
   local outfile="${BACKUP_DIR}/n8n_${ts}.sql"
   echo "Creating local backup: $outfile"
-  docker exec -t "$POSTGRES_CONTAINER" pg_dump -U postgres n8n > "$outfile"
+  docker exec -t "$POSTGRES_CONTAINER" pg_dumpall -U postgres n8n > "$outfile"
   echo "Backup complete: $outfile"
 }
 

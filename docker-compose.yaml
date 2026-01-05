@@ -127,41 +127,6 @@ services:
         retries: 3 # marked
     ports:
       - "3000:3000"      
-  # chrome:
-  #   image: zenika/alpine-chrome:with-puppeteer
-  #   restart: unless-stopped
-  #   command: 
-  #   - chromium-browser
-  #   - --headless
-  #   - --disable-gpu
-  #   - --disable-software-rasterizer
-  #   - --disable-dev-shm-usage
-  #   - --no-sandbox
-  #   - --disable-setuid-sandbox
-  #   - --disable-extensions
-  #   - --disable-background-networking
-  #   - --disable-sync
-  #   - --metrics-recording-only
-  #   - --mute-audio
-  #   - --no-first-run
-  #   - --safebrowsing-disable-auto-update
-  #   - --remote-debugging-address=0.0.0.0
-  #   - --remote-debugging-port=9222
-  #   - --disable-features=IsolateOrigins,site-per-process
-  #   - --disable-site-isolation-trials
-  #   - --remote-allow-origins=*
-  #   - about:blank
-   
-  #   ports:
-  #     - "9222:9222"
-  #   environment:
-  #     - CHROME_BIN=/usr/bin/chromium-browser
-  #     - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-  #   shm_size: 512mb  # Shared memory for Chrome (increased for better performance)
-  #   mem_limit: 400m  # Allow more memory for complex pages
-  #   mem_reservation: 100m
-  #   cap_add:
-  #     - SYS_ADMIN
     
   minio:
     image: minio/minio:latest

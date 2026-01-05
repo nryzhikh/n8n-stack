@@ -1,0 +1,21 @@
+services:
+  n8n:
+    ports:
+      - "5678:5678"
+  
+  adminer:
+    ports:
+      - "8081:8080"  # Using 8081 to avoid conflict with nocodb
+  
+  nocodb:
+    ports:
+      - "8080:8080"
+  
+  minio:
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+  
+  postgres:
+    ports:
+      - "5432:5432"
