@@ -3,9 +3,9 @@ FROM docker.n8n.io/n8nio/n8n
 
 USER root
 
-# Install packages in n8n's node_modules so task runner can find them
+# Install packages using pnpm in n8n's directory
 WORKDIR /usr/local/lib/node_modules/n8n
-RUN npm install --save \
+RUN pnpm add \
     chrome-remote-interface \
     puppeteer-core \
     node-html-to-image \
@@ -15,9 +15,5 @@ RUN npm install --save \
     serpapi \
     jimp
 
-# Also set NODE_PATH as fallback
-ENV NODE_PATH=/usr/local/lib/node_modules/n8n/node_modules
-
-WORKDIR /home/node
 USER node
 
