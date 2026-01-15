@@ -1,0 +1,167 @@
+[
+  {
+    id: "minio",
+    input_schema: {
+      title: "Configure Minio",
+      items: [
+        {
+          key: "endPoint",
+          label: "Minio Endpoint",
+          placeholder: "Minio Endpoint",
+          type: "SingleLineText",
+          required: true,
+          help_text:
+            "Hostnames can’t include underscores (_) due to DNS standard limitations. Update the hostname if you see an Invalid endpoint error.",
+        },
+        {
+          key: "port",
+          label: "Port",
+          placeholder: "Port",
+          type: "Number",
+          required: true,
+        },
+        {
+          key: "bucket",
+          label: "Bucket Name",
+          placeholder: "Bucket Name",
+          type: "SingleLineText",
+          required: true,
+        },
+        {
+          key: "access_key",
+          label: "Access Key",
+          placeholder: "Access Key",
+          type: "SingleLineText",
+          required: true,
+        },
+        {
+          key: "access_secret",
+          label: "Access Secret",
+          placeholder: "Access Secret",
+          type: "Password",
+          required: true,
+        },
+        { key: "ca", label: "Ca", placeholder: "Ca", type: "LongText" },
+        {
+          key: "useSSL",
+          label: "Use SSL",
+          placeholder: "Use SSL",
+          type: "Checkbox",
+          required: false,
+        },
+      ],
+      actions: [
+        {
+          label: "Test",
+          placeholder: "Test",
+          key: "test",
+          actionType: "TEST",
+          type: "Button",
+        },
+        {
+          label: "Save",
+          placeholder: "Save",
+          key: "save",
+          actionType: "SUBMIT",
+          type: "Button",
+        },
+      ],
+      msgOnInstall:
+        "Successfully configured! Attachments will now be stored in Minio.",
+      msgOnUninstall: "",
+    },
+    input: {
+      endPoint: "http://minio",
+      port: "9000",
+      bucket: "nocodb",
+      access_key: "minioadmin",
+      access_secret: "oHpNgrwBQZuaQ8",
+      ca: "",
+      useSSL: false,
+    },
+  },
+  {
+    id: "aws-s3",
+    input_schema: {
+      title: "Configure Amazon S3",
+      items: [
+        {
+          key: "bucket",
+          label: "Bucket Name",
+          placeholder: "Bucket Name",
+          type: "SingleLineText",
+          required: true,
+        },
+        {
+          key: "region",
+          label: "Region",
+          placeholder: "Region",
+          type: "SingleLineText",
+          required: true,
+        },
+        {
+          key: "endpoint",
+          label: "Endpoint",
+          placeholder: "Endpoint",
+          type: "SingleLineText",
+          required: false,
+        },
+        {
+          key: "access_key",
+          label: "Access Key",
+          placeholder: "Access Key",
+          type: "SingleLineText",
+          required: false,
+        },
+        {
+          key: "access_secret",
+          label: "Access Secret",
+          placeholder: "Access Secret",
+          type: "Password",
+          required: false,
+        },
+        {
+          key: "acl",
+          label: "Access Control Lists (ACL)",
+          placeholder: "",
+          type: "SingleLineText",
+          required: false,
+        },
+        {
+          key: "force_path_style",
+          label: "Force Path Style",
+          placeholder: "Default set to false",
+          type: "Checkbox",
+          required: false,
+        },
+      ],
+      actions: [
+        {
+          label: "Test",
+          placeholder: "Test",
+          key: "test",
+          actionType: "TEST",
+          type: "Button",
+        },
+        {
+          label: "Save",
+          placeholder: "Save",
+          key: "save",
+          actionType: "SUBMIT",
+          type: "Button",
+        },
+      ],
+      msgOnInstall:
+        "Successfully configured! Attachments will now be stored in AWS S3.",
+      msgOnUninstall: "",
+    },
+    input: {
+      bucket: "nocodb",
+      region: "us-east-1",
+      endpoint: "https://minio.nryzhikh.dev",
+      force_path_style: true,
+      access_key: "minioadmin",
+      access_secret: "oHpNgrwBQZuaQ8",
+    },
+  },
+];
