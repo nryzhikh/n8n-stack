@@ -71,7 +71,7 @@ services:
       NC_S3_REGION: "us-east-1"  # Can be any value for MinIO
       NC_S3_ACCESS_KEY: "${MINIO_ROOT_USER:-minioadmin}"
       NC_S3_ACCESS_SECRET: "${MINIO_ROOT_PASSWORD:-minioadmin}"
-      NC_S3_ENDPOINT: http://minio:9000
+      NC_S3_ENDPOINT: https://minio.nryzhikh.dev
       NC_S3_FORCE_PATH_STYLE: "true"  # Important for MinIO!
       NC_PUBLIC_URL: https://nocodb.nryzhikh.dev
     volumes:
