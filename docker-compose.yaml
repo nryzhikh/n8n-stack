@@ -43,7 +43,7 @@ services:
       - N8N_DIAGNOSTICS_ENABLED=false
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_LICENSE_ACTIVATION_KEY=${N8N_LICENSE_ACTIVATION_KEY}
-      - N8N_RUNNERS_ENABLED=true
+      - N8N_RUNNERS_ENABLED=false
       - N8N_BLOCK_ENV_ACCESS_IN_NODE=false
       - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
       - N8N_TRUSTED_PROXIES=loopback,linklocal,uniquelocal
@@ -51,7 +51,7 @@ services:
       - NODE_FUNCTION_ALLOW_BUILTIN=*
       - N8N_RUNNERS_INSECURE_MODE=true
       - N8N_RUNNERS_ALLOW_PROTOTYPE_MUTATION=true
-      - NODE_PATH=/opt/custom-nodes/node_modules
+      # - NODE_PATH=/opt/custom-nodes/node_modules
 
     volumes:
       - n8n_data:/home/node/.n8n
