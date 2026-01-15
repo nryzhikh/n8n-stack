@@ -51,6 +51,7 @@ services:
       - NODE_FUNCTION_ALLOW_BUILTIN=*
       - N8N_RUNNERS_INSECURE_MODE=true
       - N8N_RUNNERS_ALLOW_PROTOTYPE_MUTATION=true
+      - NODE_PATH=/opt/custom-nodes/node_modules
 
     volumes:
       - n8n_data:/home/node/.n8n

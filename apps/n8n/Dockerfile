@@ -3,9 +3,9 @@ FROM docker.n8n.io/n8nio/n8n
 
 USER root
 
-# Install packages using pnpm in n8n's directory
-WORKDIR /usr/local/lib/node_modules/n8n
-RUN pnpm add \
+# Install custom packages to a separate directory
+WORKDIR /opt/custom-nodes
+RUN npm init -y && npm install \
     chrome-remote-interface \
     puppeteer-core \
     node-html-to-image \
@@ -14,6 +14,9 @@ RUN pnpm add \
     googlethis@latest \
     serpapi \
     jimp
+
+# Make packages available to n8n task runner
+ENV NODE_PATH=/opt/custom-nodes/node_modules
 
 USER node
 
