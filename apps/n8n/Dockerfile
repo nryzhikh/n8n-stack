@@ -3,20 +3,8 @@ FROM docker.n8n.io/n8nio/n8n
 
 USER root
 
-# Install custom packages to a separate directory
-WORKDIR /opt/custom-nodes
-RUN npm init -y && npm install \
-    chrome-remote-interface \
-    puppeteer-core \
-    node-html-to-image \
-    cheerio \
-    string-similarity \
-    googlethis@latest \
-    serpapi \
-    jimp
-
-# Make packages available to n8n task runner
-ENV NODE_PATH=/opt/custom-nodes/node_modules
+# Install packages globally so they're available to n8n Code nodes
+RUN npm install -g chrome-remote-interface puppeteer-core node-html-to-image cheerio string-similarity googlethis@latest serpapi jimp
 
 USER node
 
