@@ -136,9 +136,9 @@ services:
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
-      # Tell MinIO it's behind a proxy
-      MINIO_BROWSER_REDIRECT_URL: ${MINIO_BROWSER_REDIRECT_URL}
-      MINIO_SERVER_URL: ${MINIO_SERVER_URL}
+      # Tell MinIO it's behind a proxy - REQUIRED for correct presigned URLs
+      MINIO_SERVER_URL: https://minio.nryzhikh.dev
+      MINIO_BROWSER_REDIRECT_URL: https://minio-console.nryzhikh.dev
     volumes:
       - minio_data:/data
     expose:
