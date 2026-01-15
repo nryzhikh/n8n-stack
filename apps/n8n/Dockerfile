@@ -11,7 +11,8 @@ RUN npm config set prefix /usr/local && \
     cheerio \
     string-similarity \
     serpapi \
-    jimp
+    jimp \
+    sharp
 
 # Set NODE_PATH so n8n can find the packages
 ENV NODE_PATH=/usr/local/lib/node_modules
