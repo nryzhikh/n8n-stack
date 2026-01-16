@@ -151,14 +151,14 @@ services:
       interval: 30s
       timeout: 20s
       retries: 3
-      
+
   imgproxy:
-  image: darthsim/imgproxy:latest
-  environment:
-    IMGPROXY_BIND: ":8082"
-    IMGPROXY_MAX_SRC_RESOLUTION: 100  # 100 megapixels
-  expose:
-    - "8082"
+    image: darthsim/imgproxy:latest
+    environment:
+      IMGPROXY_BIND: ":8082"
+      IMGPROXY_MAX_SRC_RESOLUTION: 100  # 100 megapixels
+    expose:
+      - "8082"
       
   adminer:
     image: adminer
