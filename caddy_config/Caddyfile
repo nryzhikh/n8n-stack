@@ -5,6 +5,9 @@ n8n.nryzhikh.dev {
 }
 
 nocodb.nryzhikh.dev {
+    request_body {
+        max_size 200MB
+    }
     reverse_proxy nocodb:8080 {
       flush_interval -1
     }
